@@ -1,5 +1,6 @@
 package com.example.googlemapdemo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +30,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this@MapsActivity, CurrentLocationActivity::class.java))
+        }
     }
 
 
